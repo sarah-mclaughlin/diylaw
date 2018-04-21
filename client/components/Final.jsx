@@ -6,7 +6,7 @@ import PropertyInfo from './PropertyInfo'
 import AddGift from './AddGift'
 import AddRecipient from './AddRecipient'
 
-class Distribution extends React.Component {
+class Final extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -79,4 +79,4 @@ class Distribution extends React.Component {
   }
 }
 
-export default Distribution
+export default Final

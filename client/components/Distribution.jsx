@@ -6,6 +6,8 @@ import PropertyInfo from './PropertyInfo'
 import AddGift from './AddGift'
 import AddRecipient from './AddRecipient'
 
+import SubRecipient from './SubRecipient'
+
 class Distribution extends React.Component {
   constructor (props) {
     super(props)
@@ -13,7 +15,8 @@ class Distribution extends React.Component {
       showGiftsInfo: false,
       showPropertyInfo: false,
       addGift: 0,
-      addRecipient: 0
+      addRecipient: 0,
+      subRecipient: false
     }
     this.toggleGiftsInfo = this.toggleGiftsInfo.bind(this)
     this.togglePropertyInfo = this.togglePropertyInfo.bind(this)
@@ -23,6 +26,7 @@ class Distribution extends React.Component {
     this.addRecipient = this.addRecipient.bind(this)
     this.removeRecipient = this.removeRecipient.bind(this)
     this.displayRecipient = this.displayRecipient.bind(this)
+    this.subRecipient = this.subRecipient.bind(this)
   }
 
   toggleGiftsInfo () {
@@ -84,6 +88,12 @@ class Distribution extends React.Component {
     return recipients
   }
 
+  subRecipient () {
+    this.setState({
+      subRecipient: true
+    })
+  }
+
   render () {
     return (
       <div className='name'>
@@ -107,6 +117,9 @@ class Distribution extends React.Component {
             Full name of recipient: <input name='name' />
             Relationship to recipient: <input name='name' />
             Share of remaining property: <input name='name' />
+            <button onClick={this.subRecipient}>Substitute recipient(s)</button>
+            {this.state.subRecipient ? <SubRecipient /> : null}
+
           </p>
           <button onClick={this.addRecipient}>Add recipient</button>
           <button onClick={this.removeRecipient}>Remove last recipient</button>

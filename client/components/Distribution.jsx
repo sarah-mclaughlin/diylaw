@@ -126,7 +126,7 @@ class Distribution extends React.Component {
           {this.displayRecipient()}
         </div>
         <div>
-          <button><Link to='/will/final'>Next</Link></button>
+          <button><Link to='/will/guardians'>Next</Link></button>
         </div>
       </div>
     )

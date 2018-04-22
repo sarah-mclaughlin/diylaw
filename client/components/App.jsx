@@ -5,7 +5,8 @@ import Home from './Home'
 import Will from './Will'
 import Name from './Name'
 import Distribution from './Distribution'
-import Final from './Final'
+import Children from './Children'
+import Submit from './Submit'
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         <Route exact path='/will/' component={Will}/>
         <Route path='/will/name/' component={Name}/>
         <Route path='/will/distribution/' component={Distribution}/>
-        <Route path='/will/final/' component={Final}/>
+        <Route path='/will/guardians/' component={Children}/>
+        <Route path='/will/submit/' component={Submit}/>
       </div>
     </Router>
   )

@@ -3,26 +3,6 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      <h1>Make my will</h1>
-      <p>[insert brief explanation of what a will is]</p>
-      <button><a href='/name'>Start</a></button>
-
-      <h3>Name</h3>
-      <p>Full legal name: <input name='name' /><button><a href='/name/info'>?</a></button></p>
-
-      <h3>Executor<button><a href='/executor/info'>?</a></button></h3>
-      <p>Full name of executor: <input executor='executor' /></p>
-      <p>Relationship to executor: <input executor-relationship='executor-relationship' /></p>
-
-      <h3>Substitute executor<button><a href='/sub-executor/info'>?</a></button></h3>
-      <p>Full name of substitute executor: <input sub-executor='sub-executor' /></p>
-      <p>Relationship to substitute executor: <input sub-executor-relationship='sub-executor-relationship' /></p>
-
-      <h3>Specific gift(s)<button><a href='/gifts/info'>?</a></button></h3>
-      <p>Item description: <input gift='gift' /><button><a href='/item/info'>?</a></button></p>
-      <p>Full name of recipient: <input gift-recipient='gift-recipient' /></p>
-      <p>Relationship to recipient: <input gift-recipient-relationship='gift-recipient-relationship' /></p>
-      <button><a href='/add-gift'>Add gift</a></button>
 
       <h3>Remaining property<button><a href='/property/info'>?</a></button></h3>
       <p>Full name of recipient: <input recipient='recipient' /></p>

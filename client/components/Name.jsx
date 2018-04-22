@@ -59,7 +59,7 @@ class Name extends React.Component {
           {this.state.addSubExecutor ? <SubExecutor /> : null}
         </div>
         <div>
-          <button><Link to='/will/gifts'>Next</Link></button>
+          <button><Link to='/will/distribution'>Next</Link></button>
         </div>
       </div>
     )

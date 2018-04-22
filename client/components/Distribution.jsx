@@ -12,13 +12,17 @@ class Distribution extends React.Component {
     this.state = {
       showGiftsInfo: false,
       showPropertyInfo: false,
-      addNewGift: false,
-      addRecipient: false
+      addGift: 0,
+      addRecipient: 0
     }
     this.toggleGiftsInfo = this.toggleGiftsInfo.bind(this)
     this.togglePropertyInfo = this.togglePropertyInfo.bind(this)
-    this.addNewGift = this.addNewGift.bind(this)
+    this.addGift = this.addGift.bind(this)
+    this.removeGift = this.removeGift.bind(this)
+    this.displayGift = this.displayGift.bind(this)
     this.addRecipient = this.addRecipient.bind(this)
+    this.removeRecipient = this.removeRecipient.bind(this)
+    this.displayRecipient = this.displayRecipient.bind(this)
   }
 
   toggleGiftsInfo () {
@@ -33,16 +37,51 @@ class Distribution extends React.Component {
     })
   }
 
-  addNewGift () {
+  addGift () {
     this.setState({
-      addNewGift: true
+      addGift: this.state.addGift + 1
     })
+  }
+  removeGift () {
+    this.setState({
+      addGift: this.state.addGift - 1
+    })
+  }
+
+  displayGift () {
+    let gifts = []
+    for (let i = 0; i < this.state.addGift; i++) {
+      gifts.push(
+        <div key={i}>
+          <AddGift />
+        </div>
+      )
+    }
+    return gifts
   }
 
   addRecipient () {
     this.setState({
-      addRecipient: true
+      addRecipient: this.state.addRecipient + 1
     })
+  }
+
+  removeRecipient () {
+    this.setState({
+      addRecipient: this.state.addRecipient - 1
+    })
+  }
+
+  displayRecipient () {
+    let recipients = []
+    for (let i = 0; i < this.state.addRecipient; i++) {
+      recipients.push(
+        <div key={i}>
+          <AddRecipient />
+        </div>
+      )
+    }
+    return recipients
   }
 
   render () {
@@ -57,8 +96,9 @@ class Distribution extends React.Component {
             Full name of recipient: <input name='name' />
             Relationship to recipient: <input name='name' />
           </p>
-          <button onClick={this.addNewGift}>Add a gift</button>
-          {this.state.addNewGift ? <AddGift /> : null}
+          <button onClick={this.addGift}>Add a gift</button>
+          <button onClick={this.removeGift}>Remove last gift</button>
+          {this.displayGift()}
 
           <h3>Remaining property</h3>
           <button onClick={this.togglePropertyInfo}>?</button>
@@ -69,7 +109,8 @@ class Distribution extends React.Component {
             Share of remaining property: <input name='name' />
           </p>
           <button onClick={this.addRecipient}>Add recipient</button>
-          {this.state.addRecipient ? <AddRecipient /> : null}
+          <button onClick={this.removeRecipient}>Remove last recipient</button>
+          {this.displayRecipient()}
         </div>
         <div>
           <button><Link to='/will/final'>Next</Link></button>
